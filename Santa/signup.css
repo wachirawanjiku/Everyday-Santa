@@ -1,0 +1,179 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: auto; /* Let height shrink naturally */
+  max-height: 90vh; /* Optional cap */
+}
+
+/* Signup Section */
+.signup-section {
+  width: 60%;
+  padding: 25px; /* Reduced padding */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 15px; /* Less spacing */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px; /* Slightly smaller input */
+  margin-bottom: 12px; /* Tighter spacing */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.options a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.google-btn img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.login {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.login a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Image Section */
+.image-section {
+  width: 80%;
+  background: url("images/bookshelf6.png") center/cover;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.testimonial {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 16px;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 90%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h4 {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.designation {
+  font-size: 12px;
+  color: #777;
+}
+
+.stars {
+  font-size: 16px;
+  color: gold;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .signup-section,
+  .image-section {
+    width: 100%;
+  }
+
+  .image-section {
+    height: 300px;
+  }
+}
