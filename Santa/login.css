@@ -1,0 +1,204 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f2ea;
+  height: 100vh; /* Make sure the body takes full height */
+  margin: 0; /* Remove default margin */
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #f9f2ea; /* Main color for text and arrow */
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #d7a7aa; /* Brand white background */
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #d7a7aa; /* Primary color as border */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #f6d2d1; /* Slight pink on hover */
+  color: #fff;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  background: #f9f2ea; /* White brand color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+/* Login Section */
+.login-section {
+  width: 80%;
+  padding: 40px;
+  background-color: #fff; /* White background */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #d7a7aa; /* Main color */
+}
+
+p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #d7a7aa; /* Main color */
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.options a {
+  text-decoration: none;
+  color: #d7a7aa;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #f6d2d1; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #f6d2d1;
+  border-radius: 5px;
+  background: #fff; /* White background for Google button */
+  cursor: pointer;
+  color: #f6d2d1; /* Set text color to primary brand color */
+}
+
+.google-btn img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.signup {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.signup a {
+  color: #d7a7aa; /* Main color */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Image Section */
+.image-section {
+  width: 80%;
+  background: url("images/bookshelf6.png") center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial {
+  background: rgba(255, 255, 255, 0.729);
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.testimonial p {
+  font-size: 16px;
+  font-weight: bold;
+  color: black; /* Main color */
+}
+
+h4 {
+  margin-top: 10px;
+  font-size: 14px;
+  color: black; /* Main color */
+}
+
+.designation {
+  font-size: 12px;
+  color: #777;
+}
+
+.stars {
+  font-size: 16px;
+  color: gold;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .login-section,
+  .image-section {
+    width: 100%;
+  }
+
+  .image-section {
+    height: 300px;
+  }
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - Everyday Santa Shop</title>
+    <link rel="stylesheet" href="shop.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">Free delivery for Orders Above $50</div>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo0.png" alt="Everyday Santa Logo" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-icons">
+          <a href="javascript:void(0);" class="search-icon"
+            ><i class="fas fa-search"></i
+          ></a>
+          <input type="text" placeholder="Search..." />
+          <a href="login.html"><i class="fas fa-user"></i></a>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h3>SHOP BY CATEGORY</h3>
+        <ul>
+          <li>Best Sellers</li>
+          <li>Product Duos</li>
+          <li>Product Minis</li>
+          <li>Sheet Masks</li>
+          <li>Skincare Kits</li>
+        </ul>
+      </aside>
+
+      <section class="product-list">
+        <h2>SHOP ALL PRODUCTS</h2>
+        <p>Real is revolutionary. Uncover the difference.</p>
+        <div class="product-container">
+          <div class="product-grid" id="product-grid">
+            <!-- Products will be inserted here dynamically -->
+          </div>
+        </div>
+        <button class="show-more-btn">Show More ➔</button>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.css">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="contact.css">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Service</h3>
+          <ul>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Orders & Returns</h3>
+          <ul>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Policy & Service</a></li>
+            <li><a href="#">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Payment Accept</h3>
+          <img src="images/payment.png" alt="Payment Methods" />
+        </div>
+      </div>
+      <p>&copy; 2025 | All Rights Reserved</p>
+    </footer>
+
+    <!-- 🔍 Toggle Search Field -->
+    <script>
+      document
+        .querySelector(".search-icon")
+        .addEventListener("click", function () {
+          const searchInput = document.querySelector(".header-icons input");
+          searchInput.classList.toggle("active");
+        });
+    </script>
+
+    <!-- 🛍️ Product Loading + Add to Cart -->
+    <script>
+      let allProducts = [];
+      let productsToShow = 6;
+      const increment = 6;
+
+      // Fetch products
+      fetch("get-products.php")
+        .then((response) => response.json())
+        .then((products) => {
+          allProducts = products;
+          displayProducts();
+        })
+        .catch((error) => {
+          console.error("Error fetching products:", error);
+        });
+
+      // Display products
+      function displayProducts() {
+        const grid = document.getElementById("product-grid");
+        grid.innerHTML = "";
+
+        const visibleProducts = allProducts.slice(0, productsToShow);
+        visibleProducts.forEach((product) => {
+          const productCard = document.createElement("div");
+          productCard.classList.add("product");
+          productCard.innerHTML = `
+          <img src="images/${product.image}" alt="${product.name}" />
+          <h4>${product.name}</h4>
+          <p>$${product.price}</p>
+          <button class="add-to-cart"
+                  data-id="${product.id}"
+                  data-name="${product.name}"
+                  data-price="${product.price}">
+            Add to Cart
+          </button>
+        `;
+          grid.appendChild(productCard);
+        });
+
+        attachAddToCartListeners();
+
+        if (productsToShow >= allProducts.length) {
+          document.querySelector(".show-more-btn").style.display = "none";
+        }
+      }
+
+      // Show more button
+      document.querySelector(".show-more-btn").addEventListener("click", () => {
+        productsToShow += increment;
+        displayProducts();
+      });
+
+      // Add to Cart listener
+      function attachAddToCartListeners() {
+        document.querySelectorAll(".add-to-cart").forEach((button) => {
+          button.addEventListener("click", function () {
+            const productId = this.getAttribute("data-id");
+            const productName = this.getAttribute("data-name");
+            const productPrice = this.getAttribute("data-price");
+            addToCart(productId, productName, productPrice);
+          });
+        });
+      }
+
+      // Send data to backend
+      function addToCart(id, name, price) {
+        fetch("add-to-cart.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id, name, price }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            alert("Product added to cart!");
+          })
+          .catch((error) => console.error("Error adding to cart:", error));
+      }
+    </script>
+  </body>
+</html>

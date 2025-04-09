@@ -1,0 +1,209 @@
+body {
+  background-color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #d7a7aa; /* Main color for body text */
+  padding: 20px;
+  margin: 0;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #f9f2ea;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #d7a7aa;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #d7a7aa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #f6d2d1;
+  color: #fff;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 15px #d7a7aa; /* soft pink glow */
+  border: 2px solid #f6d2d1; /* primary pink border */
+}
+
+.quiz-container h2 {
+  color: #d7a7aa;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  color: #d7a7aa;
+}
+
+select,
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 1em;
+  color: #d7a7aa;
+}
+
+::placeholder {
+  color: #f6d2d1;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+  color: #d7a7aa;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+button {
+  background-color: #d7a7aa;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f6d2d1;
+  color: #333;
+}
+/* Newsletter */
+.newsletter {
+  background: #d7a7aa;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 0; /* Remove margin */
+  width: 100vw; /* Full width */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.newsletter input {
+  padding: 8px;
+  width: 150px;
+  margin-right: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Newsletter */
+.newsletter button {
+  background: #f9f2ea;
+  color: #d7a7aa;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  width: auto; /* Allow the width to adjust to the content */
+  min-width: 150px; /* Set a minimum width to avoid it being too small */
+}
+
+.newsletter button:hover {
+  background: #fff;
+}
+
+/* Footer */
+footer {
+  background: #f6d2d1;
+  color: #ffffff;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0; /* Remove margin */
+  width: 100vw; /* Full width */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #f9f2ea;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.footer-column img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 8px auto;
+  border-radius: 5px;
+}
+
+/* Footer responsive */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin-bottom: 15px;
+    min-width: 100%; /* Ensure each column takes full width on smaller screens */
+  }
+}
